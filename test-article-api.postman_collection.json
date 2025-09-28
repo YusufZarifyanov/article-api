@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "45e1d406-1b49-4efb-9685-d6a946cecfb5",
+		"name": "test-article-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21966220"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"yusuf1@yandex.ru\",\r\n    \"password\": \"1234567\",\r\n    \"firstName\": \"Yusuf\",\r\n    \"lastName\": \"Fusu\",\r\n    \"middleName\": \"Pupu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ARTICLE_API}}/auth/register",
+							"protocol": "http",
+							"host": [
+								"{{ARTICLE_API}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"yusuf1@yandex.ru\",\r\n    \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ARTICLE_API}}/auth/login",
+							"protocol": "http",
+							"host": [
+								"{{ARTICLE_API}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "article",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMwNiwiZW1haWwiOiJ5dXN1ZjFAeWFuZGV4LnJ1IiwiaWF0IjoxNzU5MDg3NTU4LCJleHAiOjE3NTkwODgxNTh9.xG7bDsXD30TkC6qhnLXwMLLLdwZr_-SZ0-O3Ft8erJM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Test 3\",\r\n    \"description\": \"qwerty\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ARTICLE_API}}/article",
+							"protocol": "http",
+							"host": [
+								"{{ARTICLE_API}}"
+							],
+							"path": [
+								"article"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{ARTICLE_API}}/article/1",
+							"protocol": "http",
+							"host": [
+								"{{ARTICLE_API}}"
+							],
+							"path": [
+								"article",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE1OCwiZW1haWwiOiJ5dXN1ZjFAeWFuZGV4LnJ1IiwiaWF0IjoxNzU4ODQzMzg1LCJleHAiOjE3NTg4NDM5ODV9.z5uPbLgzOktbU_GV--twHu2Vs2Oj22fOVgXchETc7js",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"New title\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ARTICLE_API}}/article/89",
+							"protocol": "http",
+							"host": [
+								"{{ARTICLE_API}}"
+							],
+							"path": [
+								"article",
+								"89"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ARTICLE_API}}/article/311",
+							"protocol": "http",
+							"host": [
+								"{{ARTICLE_API}}"
+							],
+							"path": [
+								"article",
+								"311"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ARTICLE_API}}/article?page=1&size=1&filters={\"search\": \"st\"}",
+							"protocol": "http",
+							"host": [
+								"{{ARTICLE_API}}"
+							],
+							"path": [
+								"article"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "1"
+								},
+								{
+									"key": "filters",
+									"value": "{\"search\": \"st\"}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
