@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # app:
+  #   build: .
+  #   container_name: article-app
+  #   ports:
+  #     - "${PORT}:${PORT}"
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - postgres
+  #   restart: unless-stopped
+
+  postgres:
+    image: postgres:15.2-alpine3.17
+    container_name: article-postgres
+    hostname: postgres
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  redis:
+    image: redis:6.0.9-alpine
+    container_name: article-redis
+    hostname: redis
+    ports:
+      - 6379:6379
+
